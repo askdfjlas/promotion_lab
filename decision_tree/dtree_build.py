@@ -88,7 +88,7 @@ def prediction(leaf_labels):
         result[label] = count
 
     for label, val in result.items():
-        result[label] = str(int(result[label]/total * 100))+"%"
+        result[label] = str(int(float(result[label])/total * 100))+"%"
 
     return result
 

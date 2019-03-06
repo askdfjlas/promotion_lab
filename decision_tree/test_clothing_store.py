@@ -28,7 +28,7 @@ def main(col_names=None):
             data.append(arr)
 
     print("Total number of records = ",len(data))
-    tree = dtree_build.buildtree(data, min_gain=0.001, min_samples=300)
+    tree = dtree_build.buildtree(data, min_gain=0.002, min_samples=80)
 
     dtree_build.printtree(tree, '', col_names)
 

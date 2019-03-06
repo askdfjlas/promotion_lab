@@ -14,7 +14,7 @@ def pdf(val, mean, sd):
     )
 
 
-def classify(vals, c_types, probs, total_counts):
+def classify_entry(vals, c_types, probs, total_counts):
     scores = [0, 0]
 
     for i in range(len(labels)):
@@ -42,16 +42,12 @@ def classify(vals, c_types, probs, total_counts):
     return labels[0 if scores[0] > scores[1] else 1]
 
 
-def main():
+if __name__ == "__main__":
     types = get_column_types(FILE)
     probs, c_totals = create_counts(types, FILE)
     convert(types, probs, c_totals)
 
-    test = [1,100,150,"FALSE",0.05,0,0,0.2,0,0.2,0,0.05,0,0,0,0,0,0,0.2,"UNVISITED",
-            "UNVISITED","VISITED","UNVISITED",0.5,15,300,0,4,1.0,5,1.0,"N","FALSE",3,0,0,80,"C10.0",0]
+    test = [1, 100, 150, "FALSE", 0.05, 0, 0, 0.2, 0, 0.2, 0, 0.05, 0, 0, 0, 0, 0, 0, 0.2, "UNVISITED",
+            "UNVISITED", "VISITED", "UNVISITED", 0.5, 15, 300, 0, 4, 1.0, 5, 1.0, "N", "FALSE", 3, 0, 0, 80, "C10.0", 0]
 
-    print(classify(test, types, probs, c_totals))
-
-
-if __name__ == "__main__":
-    main()
+    print(classify_entry(test, types, probs, c_totals))
